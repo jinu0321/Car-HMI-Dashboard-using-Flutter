@@ -1,16 +1,7 @@
 # car_hmi_dashboard
 
-www.youtube.com/watch?v=7ND8CzsYrXk
+출처 : www.youtube.com/watch?v=7ND8CzsYrXk
 
-## Getting Started
+완성 스크린샷
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![스크린샷 2022-12-03 20 10 13](https://user-images.githubusercontent.com/57553647/205438018-79dbc778-45c4-450d-a4eb-df92dc2f4fb7.png)
