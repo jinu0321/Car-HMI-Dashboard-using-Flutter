@@ -26,76 +26,78 @@ class _HmiDashboardState extends State<HmiDashboard> {
         backgroundColor: Colors.black,
         body: SizedBox(
             child: (size.width > 1184 && size.height > 456)
-                ? Container(
-                    margin: const EdgeInsets.all(16),
-                    constraints: const BoxConstraints(
-                        maxWidth: 1480,
-                        minWidth: 1184,
-                        maxHeight: 604,
-                        minHeight: 456),
-                    child: AspectRatio(
-                      aspectRatio: 2.59,
-                      child: LayoutBuilder(builder: (context, constraints) {
-                        return CustomPaint(
-                          painter: HmiShapePrinter(),
-                          child: Column(
-                            children: [
-                              TimeAndTem(size: size, constraints: constraints),
-                              Expanded(
-                                  child: Stack(
-                                children: [
-                                  Column(
-                                    children: [
-                                      const SizedBox(
-                                          height: defaultPadding * 1.25),
-                                      const CarIndicators(),
-                                      const Spacer(),
-                                      const CurrentSpeed(speed: 54),
-                                      const Spacer(),
-                                      const SpeedLimit(),
-                                      const SizedBox(
-                                          height: defaultPadding * 0.75),
-                                      GearAndBattery(constraints: constraints)
-                                    ],
-                                  ),
-                                  ...List.generate(
-                                      speedLinesOpacities.length,
-                                      (index) => Positioned(
-                                          bottom: 20 + (2 * index).toDouble(),
-                                          left: constraints.maxWidth * 0.13 -
-                                              (30 * index),
-                                          height: constraints.maxHeight * 0.8,
-                                          width: constraints.maxWidth * 0.31,
-                                          child: Opacity(
-                                              opacity:
-                                                  speedLinesOpacities[index],
-                                              child: CustomPaint(
-                                                  painter:
-                                                      SpeedLinePrinter())))),
-                                  ...List.generate(
-                                      speedLinesOpacities.length,
-                                      (index) => Positioned(
-                                          bottom: 20 + (2 * index).toDouble(),
-                                          right: constraints.maxWidth * 0.13 -
-                                              (30 * index),
-                                          height: constraints.maxHeight * 0.8,
-                                          width: constraints.maxWidth * 0.31,
-                                          child: Opacity(
-                                              opacity:
-                                                  speedLinesOpacities[index],
-                                              child: Transform.scale(
-                                                scaleX: -1,
+                ? Center(
+                  child: Container(
+                      margin: const EdgeInsets.all(16),
+                      constraints: const BoxConstraints(
+                          maxWidth: 1480,
+                          minWidth: 1184,
+                          maxHeight: 604,
+                          minHeight: 456),
+                      child: AspectRatio(
+                        aspectRatio: 2.59,
+                        child: LayoutBuilder(builder: (context, constraints) {
+                          return CustomPaint(
+                            painter: HmiShapePrinter(),
+                            child: Column(
+                              children: [
+                                TimeAndTem(size: size, constraints: constraints),
+                                Expanded(
+                                    child: Stack(
+                                  children: [
+                                    Column(
+                                      children: [
+                                        const SizedBox(
+                                            height: defaultPadding * 1.25),
+                                        const CarIndicators(),
+                                        const Spacer(),
+                                        const CurrentSpeed(speed: 54),
+                                        const Spacer(),
+                                        const SpeedLimit(),
+                                        const SizedBox(
+                                            height: defaultPadding * 0.75),
+                                        GearAndBattery(constraints: constraints)
+                                      ],
+                                    ),
+                                    ...List.generate(
+                                        speedLinesOpacities.length,
+                                        (index) => Positioned(
+                                            bottom: 20 + (2 * index).toDouble(),
+                                            left: constraints.maxWidth * 0.13 -
+                                                (30 * index),
+                                            height: constraints.maxHeight * 0.8,
+                                            width: constraints.maxWidth * 0.31,
+                                            child: Opacity(
+                                                opacity:
+                                                    speedLinesOpacities[index],
                                                 child: CustomPaint(
                                                     painter:
-                                                        SpeedLinePrinter()),
-                                              )))),
-                                ],
-                              ))
-                            ],
-                          ),
-                        );
-                      }),
-                    ))
+                                                        SpeedLinePrinter())))),
+                                    ...List.generate(
+                                        speedLinesOpacities.length,
+                                        (index) => Positioned(
+                                            bottom: 20 + (2 * index).toDouble(),
+                                            right: constraints.maxWidth * 0.13 -
+                                                (30 * index),
+                                            height: constraints.maxHeight * 0.8,
+                                            width: constraints.maxWidth * 0.31,
+                                            child: Opacity(
+                                                opacity:
+                                                    speedLinesOpacities[index],
+                                                child: Transform.scale(
+                                                  scaleX: -1,
+                                                  child: CustomPaint(
+                                                      painter:
+                                                          SpeedLinePrinter()),
+                                                )))),
+                                  ],
+                                ))
+                              ],
+                            ),
+                          );
+                        }),
+                      )),
+                )
                 : const Center(
                     child: Text('Screen is too small to show the UI'))));
   }
